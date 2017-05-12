@@ -55,3 +55,9 @@ add_library(qlift-c-api SHARED ${SOURCES})
 # Define linked libs
 target_link_libraries(qlift-c-api Qt5::Core Qt5::Widgets)
 
+install(TARGETS qlift-c-api
+    DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
+    )
+install(FILES src/qlift-c-api.h
+    DESTINATION "${CMAKE_INSTALL_PREFIX}/include")
+
