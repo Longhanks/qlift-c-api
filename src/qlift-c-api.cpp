@@ -5,11 +5,10 @@
 #include <QMainWindow>
 #include <QLabel>
 
-
 #include "qlift-c-api.h"
 
-void* QApplication_ctor(int argc, char *argv[]) {
-    return reinterpret_cast<void*>(new QApplication {argc, argv});
+void* QApplication_ctor(int *argc, char *argv[]) {
+    return reinterpret_cast<void*>(new QApplication {*argc, argv});
 }
 
 int QApplication_exec(void *app) {

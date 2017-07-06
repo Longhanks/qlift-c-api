@@ -4,7 +4,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-    void* QApplication_ctor(int argc, char *argv[]);
+    void* QApplication_ctor(int *argc, char *argv[]);
     int QApplication_exec(void *app);
     void* QMainWindow_ctor_parent_default_flags_default(void);
     void* QMainWindow_ctor_parent_arg1_flags_default(void *parent);
