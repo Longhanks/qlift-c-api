@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.0.0)
 project(qlift-c-api)
 
 # Define version number
-set(VERSION "0.0.1")
+set(VERSION "0.0.2")
 
 # Compiler flags
 set(CMAKE_CXX_STANDARD 14)
@@ -49,6 +49,11 @@ set(SOURCES
 # Binary output dir
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+# Config for generation of pkg-config file
+set(DEST_DIR "${CMAKE_INSTALL_PREFIX}")
+
+configure_file("qlift-c-api.pc.in" "qlift-c-api.pc" @ONLY)
+
 # Define binary target
 add_library(qlift-c-api SHARED ${SOURCES})
 
@@ -60,4 +65,6 @@ install(TARGETS qlift-c-api
     )
 install(FILES src/qlift-c-api.h
     DESTINATION "${CMAKE_INSTALL_PREFIX}/include")
+install(FILES ${CMAKE_BINARY_DIR}/qlift-c-api.pc
+    DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
 
