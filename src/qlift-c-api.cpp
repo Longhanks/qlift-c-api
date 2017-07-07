@@ -7,54 +7,55 @@
 
 #include "qlift-c-api.h"
 
-void* QApplication_ctor(int *argc, char *argv[]) {
-    return reinterpret_cast<void*>(new QApplication {*argc, argv});
+// QApplication
+void* QApplication_new(int *argc, char *argv[]) {
+    return static_cast<void*>(new QApplication {*argc, argv});
 }
 
-int QApplication_exec(void *app) {
-   return reinterpret_cast<QApplication*>(app)->exec();
+void QApplication_delete(void *application) {
+    delete static_cast<QApplication*>(application);
 }
 
-void* QMainWindow_ctor_parent_default_flags_default(void) {
-    return reinterpret_cast<void*>(new QMainWindow {});
+// QCoreApplication
+int QCoreApplication_exec(void *coreApplication) {
+    return static_cast<QCoreApplication*>(coreApplication)->exec();
 }
 
-void* QMainWindow_ctor_parent_arg1_flags_default(void *parent) {
-    return reinterpret_cast<void*>(new QMainWindow {reinterpret_cast<QWidget*>(parent)});
+void QCoreApplication_exit(void *coreApplication, int returnCode) {
+    static_cast<QCoreApplication*>(coreApplication)->exit(returnCode);
 }
 
-void* QMainWindow_ctor_parent_arg1_flags_arg2(void *parent, int flags) {
+// QMainWindow
+void* QMainWindow_new(void *parent, int flags) {
     QFlags<Qt::WindowType> flag {flags};
-    return reinterpret_cast<void*>(new QMainWindow {reinterpret_cast<QWidget*>(parent), flag});
+    return static_cast<void*>(new QMainWindow {static_cast<QWidget*>(parent), flag});
+}
+
+void QMainWindow_delete(void *mainWindow) {
+    delete static_cast<QMainWindow*>(mainWindow);
 }
 
 void QMainWindow_setCentralWidget(void *mainWindow, void *widget) {
-    reinterpret_cast<QMainWindow *>(mainWindow)->setCentralWidget(reinterpret_cast<QWidget*>(widget));
+    static_cast<QMainWindow *>(mainWindow)->setCentralWidget(static_cast<QWidget*>(widget));
 }
 
-void QMainWindow_show(void *mainWindow) {
-    reinterpret_cast<QMainWindow*>(mainWindow)->show();
+// QWidget
+void QWidget_show(void *widget) {
+    static_cast<QMainWindow*>(widget)->show();
 }
 
-void* QLabel_ctor_parent_default_flags_default(void) {
-    return reinterpret_cast<void*>(new QLabel {});
-}
-
-void* QLabel_ctor_text_arg1_parent_default_flags_default(const char *text) {
-    return reinterpret_cast<void*>(new QLabel {text});
-}
-
-void* QLabel_ctor_text_arg1_parent_arg2_flags_default(const char *text, void *parent) {
-    return reinterpret_cast<void*>(new QLabel {text, reinterpret_cast<QWidget*>(parent)});
-}
-
-void* QLabel_ctor_text_arg1_parent_default_flags_arg3(const char *text, void *parent, int flags) {
+// QLabel
+void* QLabel_new(const char *text, void *parent, int flags) {
     QFlags<Qt::WindowType> flag {flags};
-    return reinterpret_cast<void*>(new QLabel {text, reinterpret_cast<QWidget*>(parent), flag});
+    return static_cast<void*>(new QLabel {text, static_cast<QWidget*>(parent), flag});
+}
+
+void QLabel_delete(void *label) {
+    delete static_cast<QLabel*>(label);
 }
 
 void QLabel_setAlignment(void *label, int alignment) {
     QFlags<Qt::AlignmentFlag> flag {alignment};
-    reinterpret_cast<QLabel *>(label)->setAlignment(flag);
+    static_cast<QLabel *>(label)->setAlignment(flag);
 }
 
