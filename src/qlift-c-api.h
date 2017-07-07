@@ -24,6 +24,13 @@ void QCoreApplication_delete(void *coreApplication);
 int QCoreApplication_exec(void *coreApplication);
 void QCoreApplication_exit(void *coreApplication, int returnCode);
 
+// QPushButton
+void* QPushButton_new(void *icon, const char *text, void *parent);
+void QPushButton_delete(void *pushButton);
+
+// QAbstractButton
+void QAbstractButton_clicked_connect(void *abstractButton, void *receiver, void (*slot_ptr)(int));
+
 // QMainWindow
 void* QMainWindow_new(void *parent, int flags);
 void QMainWindow_delete(void *mainWindow);

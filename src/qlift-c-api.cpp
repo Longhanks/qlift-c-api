@@ -4,6 +4,8 @@
 #include <QApplication>
 #include <QMainWindow>
 #include <QLabel>
+#include <QIcon>
+#include <QPushButton>
 
 #include "qlift-c-api.h"
 
@@ -53,6 +55,23 @@ int QCoreApplication_exec(void *coreApplication) {
 
 void QCoreApplication_exit(void *coreApplication, int returnCode) {
     static_cast<QCoreApplication*>(coreApplication)->exit(returnCode);
+}
+
+// QPushButton
+void* QPushButton_new(void *icon, const char *text, void *parent) {
+    if (icon) {
+        return static_cast<void*>(new QPushButton {*static_cast<QIcon*>(icon), text, static_cast<QWidget*>(parent)});
+    }
+    return static_cast<void*>(new QPushButton {text, static_cast<QWidget*>(parent)});
+}
+
+void QPushButton_delete(void *pushButton) {
+    delete static_cast<QPushButton*>(pushButton);
+}
+
+// QAbstractButton
+void QAbstractButton_clicked_connect(void *abstractButton, void *receiver, void (*slot_ptr)(int)) {
+    QObject::connect(static_cast<QAbstractButton*>(abstractButton), &QAbstractButton::clicked, static_cast<QObject*>(receiver), *slot_ptr);
 }
 
 // QMainWindow
