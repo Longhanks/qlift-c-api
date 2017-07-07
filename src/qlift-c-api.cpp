@@ -7,6 +7,15 @@
 
 #include "qlift-c-api.h"
 
+// QObject
+void *QObject_new(void *parent) {
+    return static_cast<void*>(new QObject {static_cast<QObject*>(parent)});
+}
+
+void QObject_delete(void *object) {
+    delete static_cast<QObject*>(object);
+}
+
 // QApplication
 void* QApplication_new(int *argc, char *argv[]) {
     return static_cast<void*>(new QApplication {*argc, argv});
@@ -16,7 +25,24 @@ void QApplication_delete(void *application) {
     delete static_cast<QApplication*>(application);
 }
 
+// QGuiApplication
+void* QGuiApplication_new(int *argc, char *argv[]) {
+    return static_cast<QGuiApplication*>(new QGuiApplication {*argc, argv});
+}
+
+void QGuiApplication_delete(void *guiApplication) {
+    delete static_cast<QGuiApplication*>(guiApplication);
+}
+
 // QCoreApplication
+void* QCoreApplication_new(int *argc, char *argv[]) {
+    return static_cast<QCoreApplication*>(new QCoreApplication {*argc, argv});
+}
+
+void QCoreApplication_delete(void *coreApplication) {
+    delete static_cast<QCoreApplication*>(coreApplication);
+}
+
 int QCoreApplication_exec(void *coreApplication) {
     return static_cast<QCoreApplication*>(coreApplication)->exec();
 }
@@ -40,8 +66,17 @@ void QMainWindow_setCentralWidget(void *mainWindow, void *widget) {
 }
 
 // QWidget
+void* QWidget_new(void *parent, int flags) {
+    QFlags<Qt::WindowType> flag {flags};
+    return static_cast<void*>(new QWidget {static_cast<QWidget*>(parent), flag});
+}
+
+void QWidget_delete(void *widget) {
+    delete static_cast<QWidget*>(widget);
+}
+
 void QWidget_show(void *widget) {
-    static_cast<QMainWindow*>(widget)->show();
+    static_cast<QWidget*>(widget)->show();
 }
 
 // QLabel
