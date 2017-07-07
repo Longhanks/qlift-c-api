@@ -16,6 +16,10 @@ void QObject_delete(void *object) {
     delete static_cast<QObject*>(object);
 }
 
+void* QObject_parent(void *object) {
+    return static_cast<QObject*>(object)->parent();
+}
+
 // QApplication
 void* QApplication_new(int *argc, char *argv[]) {
     return static_cast<void*>(new QApplication {*argc, argv});

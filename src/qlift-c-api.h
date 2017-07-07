@@ -8,6 +8,7 @@ extern "C" {
 // QObject
 void* QObject_new(void *parent);
 void QObject_delete(void *object);
+void* QObject_parent(void *object);
 
 // QApplication
 void* QApplication_new(int *argc, char *argv[]);
