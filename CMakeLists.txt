@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.0.0)
 project(qlift-c-api)
 
 # Define version number
-set(VERSION "0.0.8")
+set(VERSION "0.0.9")
 
 # Compiler flags
 set(CMAKE_CXX_STANDARD 14)
@@ -39,14 +39,14 @@ find_package(Qt5Widgets REQUIRED)
 
 # Define include dir
 include_directories(
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/src
+    include
+    src
 )
 
 # Define source files
 file(GLOB PUBLIC_SOURCES
-        ${CMAKE_SOURCE_DIR}/src/qlift-c-api/*.h
-        ${CMAKE_SOURCE_DIR}/src/qlift-c-api/*.cpp
+        src/qlift-c-api/*.h
+        src/qlift-c-api/*.cpp
 )
 
 set(SOURCES
