@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.0.0)
 project(qlift-c-api)
 
 # Define version number
-set(VERSION "0.0.2")
+set(VERSION "0.0.8")
 
 # Compiler flags
 set(CMAKE_CXX_STANDARD 14)
@@ -33,17 +33,25 @@ if(APPLE)
     execute_process(COMMAND brew --prefix qt OUTPUT_VARIABLE QT_PREFIX_PATH)
     string(REGEX REPLACE "\n$" "" CMAKE_PREFIX_PATH "${QT_PREFIX_PATH}")
 endif()
+
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 
 # Define include dir
 include_directories(
     ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/src
 )
 
 # Define source files
+file(GLOB PUBLIC_SOURCES
+        ${CMAKE_SOURCE_DIR}/src/qlift-c-api/*.h
+        ${CMAKE_SOURCE_DIR}/src/qlift-c-api/*.cpp
+)
+
 set(SOURCES
-    src/qlift-c-api.cpp
+        src/public/qlift-c-api.h
+        ${PUBLIC_SOURCES}
 )
 
 # Binary output dir
@@ -62,9 +70,14 @@ target_link_libraries(qlift-c-api Qt5::Core Qt5::Widgets)
 
 install(TARGETS qlift-c-api
     DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
-    )
-install(FILES src/qlift-c-api.h
+)
+
+install(FILES src/public/qlift-c-api.h
     DESTINATION "${CMAKE_INSTALL_PREFIX}/include")
+
+install(DIRECTORY src/qlift-c-api/
+    DESTINATION "${CMAKE_INSTALL_PREFIX}/include/qlift-c-api"
+    FILES_MATCHING PATTERN "*.h*")
+
 install(FILES ${CMAKE_BINARY_DIR}/qlift-c-api.pc
     DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
-
