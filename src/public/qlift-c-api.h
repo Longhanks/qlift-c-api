@@ -10,6 +10,7 @@ extern "C" {
 #include "qlift-c-api/qlift-QAbstractButton.h"
 #include "qlift-c-api/qlift-QApplication.h"
 #include "qlift-c-api/qlift-QCoreApplication.h"
+#include "qlift-c-api/qlift-QFrame.h"
 #include "qlift-c-api/qlift-QGuiApplication.h"
 #include "qlift-c-api/qlift-QLabel.h"
 #include "qlift-c-api/qlift-QMainWindow.h"
