@@ -18,3 +18,4 @@ void QMainWindow_setCentralWidget(void *mainWindow, void *widget);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QMAINWINDOW_H
+

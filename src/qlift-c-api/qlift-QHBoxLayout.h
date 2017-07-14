@@ -17,3 +17,4 @@ void QHBoxLayout_delete(void *hBoxLayout);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QHBOXLAYOUT_H
+

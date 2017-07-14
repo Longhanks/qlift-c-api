@@ -14,3 +14,4 @@ void* QPushButton_new(void *icon, const char *text, void *parent) {
 void QPushButton_delete(void *pushButton) {
     delete static_cast<QPushButton*>(pushButton);
 }
+

@@ -17,3 +17,4 @@ void QGuiApplication_delete(void *guiApplication);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QGUIAPPLICATION_H
+

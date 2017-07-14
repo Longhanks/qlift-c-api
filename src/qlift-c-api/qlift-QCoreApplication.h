@@ -19,3 +19,4 @@ void QCoreApplication_exit(void *coreApplication, int returnCode);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QCOREAPPLICATION_H
+

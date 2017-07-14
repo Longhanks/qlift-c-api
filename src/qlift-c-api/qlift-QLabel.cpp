@@ -5,8 +5,7 @@
 
 
 void* QLabel_new(const char *text, void *parent, int flags) {
-    QFlags<Qt::WindowType> flag {flags};
-    return static_cast<void*>(new QLabel {text, static_cast<QWidget*>(parent), flag});
+    return static_cast<void*>(new QLabel {text, static_cast<QWidget*>(parent), static_cast<QFlags<Qt::WindowType>>(flags)});
 }
 
 void QLabel_delete(void *label) {
@@ -14,6 +13,6 @@ void QLabel_delete(void *label) {
 }
 
 void QLabel_setAlignment(void *label, int alignment) {
-    QFlags<Qt::AlignmentFlag> flag {alignment};
-    static_cast<QLabel *>(label)->setAlignment(flag);
+    static_cast<QLabel *>(label)->setAlignment(static_cast<QFlags<Qt::AlignmentFlag>>(alignment));
 }
+

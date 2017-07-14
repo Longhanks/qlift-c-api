@@ -5,8 +5,7 @@
 
 
 void* QWidget_new(void *parent, int flags) {
-    QFlags<Qt::WindowType> flag {flags};
-    return static_cast<void*>(new QWidget {static_cast<QWidget*>(parent), flag});
+    return static_cast<void*>(new QWidget {static_cast<QWidget*>(parent), static_cast<QFlags<Qt::WindowType>>(flags)});
 }
 
 void QWidget_delete(void *widget) {
@@ -16,3 +15,4 @@ void QWidget_delete(void *widget) {
 void QWidget_show(void *widget) {
     static_cast<QWidget*>(widget)->show();
 }
+

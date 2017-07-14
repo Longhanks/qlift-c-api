@@ -17,3 +17,4 @@ void QApplication_delete(void *application);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QAPPLICATION_H
+

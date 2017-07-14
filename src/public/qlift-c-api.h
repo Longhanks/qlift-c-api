@@ -20,6 +20,7 @@ extern "C" {
 #include "qlift-c-api/qlift-QMainWindow.h"
 #include "qlift-c-api/qlift-QObject.h"
 #include "qlift-c-api/qlift-QPushButton.h"
+#include "qlift-c-api/qlift-QSpacerItem.h"
 #include "qlift-c-api/qlift-QVBoxLayout.h"
 #include "qlift-c-api/qlift-QWidget.h"
 

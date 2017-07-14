@@ -18,3 +18,4 @@ void QLabel_setAlignment(void *label, int alignment);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QLABEL_H
+

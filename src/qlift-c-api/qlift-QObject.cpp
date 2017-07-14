@@ -15,3 +15,4 @@ void QObject_delete(void *object) {
 void* QObject_parent(void *object) {
     return static_cast<QObject*>(object)->parent();
 }
+

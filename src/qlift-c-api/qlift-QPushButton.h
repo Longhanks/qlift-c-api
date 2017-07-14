@@ -17,3 +17,4 @@ void QPushButton_delete(void *pushButton);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QPUSHBUTTON_H
+

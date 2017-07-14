@@ -19,3 +19,4 @@ int QCoreApplication_exec(void *coreApplication) {
 void QCoreApplication_exit(void *coreApplication, int returnCode) {
     static_cast<QCoreApplication*>(coreApplication)->exit(returnCode);
 }
+

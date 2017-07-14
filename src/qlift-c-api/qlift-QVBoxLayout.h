@@ -17,3 +17,4 @@ void QVBoxLayout_delete(void *vBoxLayout);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QVBOXLAYOUT_H
+

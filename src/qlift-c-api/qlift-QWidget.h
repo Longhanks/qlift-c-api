@@ -18,3 +18,4 @@ void QWidget_show(void *widget);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QWIDGET_H
+

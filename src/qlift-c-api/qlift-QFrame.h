@@ -17,3 +17,4 @@ void QFrame_delete(void *label);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QFRAME_H
+

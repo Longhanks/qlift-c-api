@@ -11,3 +11,4 @@ void* QGuiApplication_new(int *argc, char *argv[]) {
 void QGuiApplication_delete(void *guiApplication) {
     delete static_cast<QGuiApplication*>(guiApplication);
 }
+

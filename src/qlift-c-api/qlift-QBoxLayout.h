@@ -20,3 +20,4 @@ void QBoxLayout_addWidget(void *boxLayout, void *widget, int stretch, int alignm
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QBOXLAYOUT_H
+

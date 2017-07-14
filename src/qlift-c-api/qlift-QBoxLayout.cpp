@@ -21,7 +21,6 @@ void QBoxLayout_addLayout(void *boxLayout, void *layout, int stretch) {
 }
 
 void QBoxLayout_addWidget(void *boxLayout, void *widget, int stretch, int alignment) {
-    QFlags<Qt::AlignmentFlag> flag {alignment};
-    static_cast<QBoxLayout*>(boxLayout)->addWidget(static_cast<QWidget*>(widget), stretch, flag);
+    static_cast<QBoxLayout*>(boxLayout)->addWidget(static_cast<QWidget*>(widget), stretch, static_cast<QFlags<Qt::AlignmentFlag>>(alignment));
 }
 

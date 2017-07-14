@@ -12,4 +12,3 @@ void QHBoxLayout_delete(void *hBoxLayout) {
     delete static_cast<QHBoxLayout*>(hBoxLayout);
 }
 
-

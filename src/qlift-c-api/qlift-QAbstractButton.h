@@ -16,3 +16,4 @@ void QAbstractButton_clicked_connect(void *abstractButton, void *receiver, void 
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QABSTRACTBUTTON_H
+

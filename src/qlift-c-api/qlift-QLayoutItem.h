@@ -9,7 +9,7 @@ extern "C" {
 #error "Only <qlift-c-api.h> can be included."
 #endif
 
-int QLayoutItem_alignment(void *layoutItem);
+unsigned int QLayoutItem_alignment(void *layoutItem);
 void QLayoutItem_setAlignment(void *layoutItem, int alignment);
 
 #ifdef __cplusplus
@@ -17,3 +17,4 @@ void QLayoutItem_setAlignment(void *layoutItem, int alignment);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QLAYOUTITEM_H
+

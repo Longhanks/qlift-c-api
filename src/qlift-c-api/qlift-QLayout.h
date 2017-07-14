@@ -17,3 +17,4 @@ void QLayout_setEnabled(void *layout, int enabled);
 #endif
 
 #endif //QLIFT_C_API_QLIFT_QLAYOUT_H
+
