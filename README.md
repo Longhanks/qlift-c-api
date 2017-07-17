@@ -1,6 +1,8 @@
 # qlift-c-api
 C API to Qt for Qlift
 
+[![Build Status](https://travis-ci.org/Longhanks/qlift-c-api.svg?branch=master)](https://travis-ci.org/Longhanks/qlift-c-api)
+
 ### Build options
 
 - `CMAKE_INSTALL_PREFIX`: Where to install the library, modulemap and headers.
