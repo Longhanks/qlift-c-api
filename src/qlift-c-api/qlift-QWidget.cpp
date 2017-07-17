@@ -20,3 +20,11 @@ void QWidget_addAction(void *widget, void *action) {
     static_cast<QWidget*>(widget)->addAction(static_cast<QAction*>(action));
 }
 
+const char* QWidget_windowTitle(void *widget) {
+    return static_cast<QWidget*>(widget)->windowTitle().toLocal8Bit().data();
+}
+
+void QWidget_setWindowTitle(void *widget, const char *title) {
+    static_cast<QWidget*>(widget)->setWindowTitle(title);
+}
+
