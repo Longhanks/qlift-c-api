@@ -28,3 +28,16 @@ void QWidget_setWindowTitle(void *widget, const char *title) {
     static_cast<QWidget*>(widget)->setWindowTitle(title);
 }
 
+void* QWidget_geometry(void *widget) {
+    auto stackRect = static_cast<QWidget*>(widget)->geometry();
+    return static_cast<void*>(new QRect {stackRect.x(), stackRect.y(), stackRect.width(), stackRect.height()});
+}
+
+void QWidget_setGeometry(void *widget, void *rect) {
+    if (rect) {
+        static_cast<QWidget*>(widget)->setGeometry(*static_cast<QRect*>(rect));
+    } else {
+        static_cast<QWidget*>(widget)->setGeometry(QRect());
+    }
+}
+
