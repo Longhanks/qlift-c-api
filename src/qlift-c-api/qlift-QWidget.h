@@ -12,6 +12,7 @@ extern "C" {
 void* QWidget_new(void *parent, int flags);
 void QWidget_delete(void *widget);
 void QWidget_show(void *widget);
+void QWidget_addAction(void *widget, void *action);
 
 #ifdef __cplusplus
 }

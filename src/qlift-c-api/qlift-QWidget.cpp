@@ -16,3 +16,7 @@ void QWidget_show(void *widget) {
     static_cast<QWidget*>(widget)->show();
 }
 
+void QWidget_addAction(void *widget, void *action) {
+    static_cast<QWidget*>(widget)->addAction(static_cast<QAction*>(action));
+}
+
