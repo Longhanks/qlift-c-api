@@ -12,7 +12,19 @@ void QMainWindow_delete(void *mainWindow) {
     delete static_cast<QMainWindow*>(mainWindow);
 }
 
+void* QMainWindow_centralWidget(void *mainWindow) {
+    return static_cast<void*>(static_cast<QMainWindow*>(mainWindow)->centralWidget());
+}
+
 void QMainWindow_setCentralWidget(void *mainWindow, void *widget) {
-    static_cast<QMainWindow *>(mainWindow)->setCentralWidget(static_cast<QWidget*>(widget));
+    static_cast<QMainWindow*>(mainWindow)->setCentralWidget(static_cast<QWidget*>(widget));
+}
+
+void* QMainWindow_menuBar(void *mainWindow) {
+    return static_cast<void*>(static_cast<QMainWindow*>(mainWindow)->menuBar());
+}
+
+void QMainWindow_setMenuBar(void *mainWindow, void *menuBar) {
+    static_cast<QMainWindow*>(mainWindow)->setMenuBar(static_cast<QMenuBar*>(menuBar));
 }
 

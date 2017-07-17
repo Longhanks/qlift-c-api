@@ -11,7 +11,10 @@ extern "C" {
 
 void* QMainWindow_new(void *parent, int flags);
 void QMainWindow_delete(void *mainWindow);
+void* QMainWindow_centralWidget(void *mainWindow);
 void QMainWindow_setCentralWidget(void *mainWindow, void *widget);
+void* QMainWindow_menuBar(void *mainWindow);
+void QMainWindow_setMenuBar(void *mainWindow, void *menuBar);
 
 #ifdef __cplusplus
 }
