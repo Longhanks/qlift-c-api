@@ -8,3 +8,11 @@ void QAbstractButton_clicked_connect(void *abstractButton, void *receiver, void 
     QObject::connect(static_cast<QAbstractButton*>(abstractButton), &QAbstractButton::clicked, static_cast<QObject*>(receiver), *slot_ptr);
 }
 
+const char* QAbstractButton_text(void *abstractButton) {
+    return static_cast<QAbstractButton*>(abstractButton)->text().toLocal8Bit().data();
+}
+
+void QAbstractButton_setText(void *abstractButton, const char *text) {
+    static_cast<QAbstractButton*>(abstractButton)->setText(text);
+}
+

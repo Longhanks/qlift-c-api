@@ -16,3 +16,11 @@ void QLabel_setAlignment(void *label, int alignment) {
     static_cast<QLabel *>(label)->setAlignment(static_cast<QFlags<Qt::AlignmentFlag>>(alignment));
 }
 
+const char* QLabel_text(void *label) {
+    return static_cast<QLabel*>(label)->text().toLocal8Bit().data();
+}
+
+void QLabel_setText(void *label, const char *text) {
+    static_cast<QLabel*>(label)->setText(text);
+}
+

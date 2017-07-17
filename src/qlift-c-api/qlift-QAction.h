@@ -11,6 +11,8 @@ extern "C" {
 
 void* QAction_new(void *icon, const char *text, void *parent);
 void QAction_delete(void *pushButton);
+const char* QAction_text(void *action);
+void QAction_setText(void *action, const char *text);
 
 #ifdef __cplusplus
 }

@@ -20,3 +20,11 @@ void QAction_delete(void *action) {
     delete static_cast<QAction*>(action);
 }
 
+const char* QAction_text(void *action) {
+    return static_cast<QAction*>(action)->text().toLocal8Bit().data();
+}
+
+void QAction_setText(void *action, const char *text) {
+    static_cast<QAction*>(action)->setText(text);
+}
+
