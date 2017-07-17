@@ -37,7 +37,7 @@ script:
    fi
  - mkdir build
  - cd build
- - cmake .. -DCMAKE_INSTALL_PREFIX=$PREFIX
+ - cmake .. -DCMAKE_INSTALL_PREFIX=$PREFIX -DENABLE_STATIC=ON -DENABLE_SHARED=ON
  - make
  - sudo make install
 
