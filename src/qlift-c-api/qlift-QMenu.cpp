@@ -4,12 +4,12 @@
 #include "qlift-QMenu.h"
 
 
-void* QMenu_new(void *parent) {
-    return static_cast<void*>(new QMenu {static_cast<QWidget*>(parent)});
-}
-
-void* QMenu_new_withTitle(const char *title, void *parent) {
-    return static_cast<void*>(new QMenu {title, static_cast<QWidget*>(parent)});
+void* QMenu_new(const char *title, void *parent) {
+    if (title) {
+        return static_cast<void*>(new QMenu {title, static_cast<QWidget*>(parent)});
+    } else {
+        return static_cast<void*>(new QMenu {static_cast<QWidget*>(parent)});
+    }
 }
 
 void QMenu_delete(void *menu) {

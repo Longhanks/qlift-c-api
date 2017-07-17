@@ -8,6 +8,7 @@ extern "C" {
 #define QLIFT_C_API_INTERNAL
 
 #include "qlift-c-api/qlift-QAbstractButton.h"
+#include "qlift-c-api/qlift-QAction.h"
 #include "qlift-c-api/qlift-QApplication.h"
 #include "qlift-c-api/qlift-QBoxLayout.h"
 #include "qlift-c-api/qlift-QCoreApplication.h"
@@ -22,6 +23,7 @@ extern "C" {
 #include "qlift-c-api/qlift-QMenuBar.h"
 #include "qlift-c-api/qlift-QObject.h"
 #include "qlift-c-api/qlift-QPushButton.h"
+#include "qlift-c-api/qlift-QRect.h"
 #include "qlift-c-api/qlift-QSpacerItem.h"
 #include "qlift-c-api/qlift-QVBoxLayout.h"
 #include "qlift-c-api/qlift-QWidget.h"

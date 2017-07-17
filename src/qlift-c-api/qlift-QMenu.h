@@ -9,8 +9,7 @@ extern "C" {
 #error "Only <qlift-c-api.h> can be included."
 #endif
     
-void* QMenu_new(void *parent);
-void* QMenu_new_withTitle(const char *title, void *parent);
+void* QMenu_new(const char *title, void *parent);
 void QMenu_delete(void *menu);
 
 #ifdef __cplusplus
