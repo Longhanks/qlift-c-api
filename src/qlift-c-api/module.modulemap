@@ -1,0 +1,5 @@
+module CQlift {
+    header "../qlift-c-api.h"
+    link "qlift-c-api"
+    export *
+}

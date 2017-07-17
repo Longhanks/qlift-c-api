@@ -50,34 +50,54 @@ file(GLOB PUBLIC_SOURCES
 )
 
 set(SOURCES
-        src/public/qlift-c-api.h
+        src/qlift-c-api.h
         ${PUBLIC_SOURCES}
 )
 
 # Binary output dir
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Config for generation of pkg-config file
 set(DEST_DIR "${CMAKE_INSTALL_PREFIX}")
 
 configure_file("qlift-c-api.pc.in" "qlift-c-api.pc" @ONLY)
 
-# Define binary target
-add_library(qlift-c-api SHARED ${SOURCES})
+# Options controlling whether to build the shared or the static lib
+option(ENABLE_SHARED "Enable building the shared library" ON)
+option(ENABLE_STATIC "Enable building the static library" OFF)
 
-# Define linked libs
-target_link_libraries(qlift-c-api Qt5::Core Qt5::Widgets)
+# Define binary targets
+if(ENABLE_SHARED)
+    add_library(qlift-c-api SHARED ${SOURCES})
+    set_target_properties(qlift-c-api PROPERTIES OUTPUT_NAME qlift-c-api)
+    target_link_libraries(qlift-c-api Qt5::Core Qt5::Widgets)
+    install(TARGETS qlift-c-api
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
+    )
+endif()
 
-install(TARGETS qlift-c-api
-    DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
-)
+if(ENABLE_STATIC)
+    add_library(qlift-c-api-static STATIC ${SOURCES})
+    set_target_properties(qlift-c-api-static PROPERTIES OUTPUT_NAME qlift-c-api)
+    target_link_libraries(qlift-c-api-static Qt5::Core Qt5::Widgets)
+    install(TARGETS qlift-c-api-static
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
+    )
+endif()
 
-install(FILES src/public/qlift-c-api.h
-    DESTINATION "${CMAKE_INSTALL_PREFIX}/include")
+if(ENABLE_SHARED OR ENABLE_STATIC)
+    install(FILES src/qlift-c-api.h
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/include")
 
-install(DIRECTORY src/qlift-c-api/
-    DESTINATION "${CMAKE_INSTALL_PREFIX}/include/qlift-c-api"
-    FILES_MATCHING PATTERN "*.h*")
+    install(DIRECTORY src/qlift-c-api/
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/include/qlift-c-api"
+        FILES_MATCHING PATTERN "*.h*")
 
-install(FILES ${CMAKE_BINARY_DIR}/qlift-c-api.pc
-    DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
+    install(FILES src/qlift-c-api/module.modulemap
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/include/qlift-c-api")
+
+    install(FILES ${CMAKE_BINARY_DIR}/qlift-c-api.pc
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
+endif()
+
