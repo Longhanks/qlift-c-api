@@ -12,7 +12,7 @@ extern "C" {
 void* QObject_new(void *parent);
 void QObject_delete(void *object);
 void* QObject_parent(void *object);
-void QObject_destroyed_connect(void *object, void *receiver, void (*slot_ptr)(void));
+void QObject_destroyed_connect(void *object, void *receiver, void *info, void (*slot_ptr)(void*));
 
 #ifdef __cplusplus
 }
