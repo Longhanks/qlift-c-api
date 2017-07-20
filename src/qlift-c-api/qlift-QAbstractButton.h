@@ -9,11 +9,9 @@ extern "C" {
 #error "Only <qlift-c-api.h> can be included."
 #endif
 
-void QAbstractButton_clicked_connect(void *abstractButton, void *receiver, void (*slot_ptr)(int));
 const char* QAbstractButton_text(void *abstractButton);
 void QAbstractButton_setText(void *abstractButton, const char *text);
-
-
+void QAbstractButton_clicked_connect(void *abstractButton, void *receiver, void *info, void (*slot_ptr)(void*, int));
 
 #ifdef __cplusplus
 }
