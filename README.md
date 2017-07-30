@@ -9,15 +9,18 @@ C API to Qt for Qlift
 - `ENABLE_SHARED`: Enable or disable building qlift-c-api as a shared library. Default is ON.
 - `ENABLE_STATIC`: Enable or disable building qlift-c-api as a static library. Default is OFF.
 
-To install as a shared library in ```/usr/local``` (default install directory):
+### Installation instructions
+
+The default installation directory on UNIX systems is `/usr/local`. To for example install to `/usr` run:
+
 ```sh
 git clone https://github.com/Longhanks/qlift-c-api
 cd qlift-c-api
 mkdir build
 cd build
-cmake ..
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 make
-sudo make install # root access may not be nessasary if you have /usr/local set up right
+sudo make install
 ```
 
 ### License
