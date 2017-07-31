@@ -28,3 +28,13 @@ void QAction_setText(void *action, const char *text) {
     static_cast<QAction*>(action)->setText(text);
 }
 
+void QAction_triggered_connect(void *action, void *receiver, void *info, void (*slot_ptr)(void*, int)) {
+    QObject::connect(
+        static_cast<QAction*>(action),
+        &QAction::triggered,
+        static_cast<QObject*>(receiver),
+        [info, slot_ptr](int checked) {
+            (*slot_ptr)(info, checked);
+        }
+    );
+}
