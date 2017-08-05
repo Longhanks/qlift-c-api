@@ -9,7 +9,7 @@ extern "C" {
 #error "Only <qlift-c-api.h> can be included."
 #endif
 
-void* QGroupBox_new(const char *text, void *parent);
+void* QGroupBox_new(const char *title, void *parent);
 void QGroupBox_delete(void *groupBox);
 void QGroupBox_setAlignment(void *groupBox, int alignment);
 const char* QGroupBox_title(void *groupBox);

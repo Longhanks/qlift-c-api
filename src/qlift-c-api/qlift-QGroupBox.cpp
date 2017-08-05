@@ -4,8 +4,8 @@
 #include "qlift-QGroupBox.h"
 
 
-void* QGroupBox_new(const char *text, void *parent) {
-    return static_cast<void*>(new QGroupBox {text, static_cast<QWidget*>(parent)});
+void* QGroupBox_new(const char *title, void *parent) {
+    return static_cast<void*>(new QGroupBox {title, static_cast<QWidget*>(parent)});
 }
 
 void QGroupBox_delete(void *groupBox) {
