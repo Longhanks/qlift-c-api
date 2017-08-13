@@ -10,7 +10,7 @@ extern "C" {
 #endif
 
 void* QFrame_new(void *parent, int flags);
-void QFrame_delete(void *label);
+void QFrame_delete(void *frame);
 
 #ifdef __cplusplus
 }
