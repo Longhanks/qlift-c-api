@@ -11,6 +11,8 @@ extern "C" {
 
 int QLayout_isEnabled(void *layout);
 void QLayout_setEnabled(void *layout, int enabled);
+int QLayout_sizeConstraint(void *layout);
+void QLayout_setSizeConstraint(void *layout, int sizeConstraint);
 
 #ifdef __cplusplus
 }
