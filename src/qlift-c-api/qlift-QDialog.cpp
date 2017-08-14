@@ -16,3 +16,11 @@ int QDialog_exec(void *dialog) {
     return static_cast<QDialog*>(dialog)->exec();
 }
 
+void QDialog_accept(void *dialog) {
+    static_cast<QDialog*>(dialog)->accept();
+}
+
+void QDialog_reject(void *dialog) {
+    static_cast<QDialog*>(dialog)->reject();
+}
+

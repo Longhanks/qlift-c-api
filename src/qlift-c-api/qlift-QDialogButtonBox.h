@@ -15,6 +15,8 @@ int QDialogButtonBox_orientation(void *dialogButtonBox);
 void QDialogButtonBox_setOrientation(void *dialogButtonBox, int orientation);
 int QDialogButtonBox_standardButtons(void *dialogButtonBox);
 void QDialogButtonBox_setStandardButtons(void *dialogButtonBox, int standardButtons);
+void QDialogButtonBox_accepted_connect(void *dialogButtonBox, void *receiver, void *info, void (*slot_ptr)(void*));
+void QDialogButtonBox_rejected_connect(void *dialogButtonBox, void *receiver, void *info, void (*slot_ptr)(void*));
 
 #ifdef __cplusplus
 }

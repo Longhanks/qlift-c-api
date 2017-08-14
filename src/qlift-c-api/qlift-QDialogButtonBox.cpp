@@ -28,3 +28,25 @@ void QDialogButtonBox_setStandardButtons(void *dialogButtonBox, int standardButt
     static_cast<QDialogButtonBox*>(dialogButtonBox)->setStandardButtons(static_cast<QFlags<QDialogButtonBox::StandardButton>>(standardButtons));
 }
 
+void QDialogButtonBox_accepted_connect(void *dialogButtonBox, void *receiver, void *info, void (*slot_ptr)(void*)) {
+    QObject::connect(
+        static_cast<QDialogButtonBox*>(dialogButtonBox),
+        &QDialogButtonBox::accepted,
+        static_cast<QObject*>(receiver),
+        [info, slot_ptr]() {
+            (*slot_ptr)(info);
+        }
+    );
+}
+
+void QDialogButtonBox_rejected_connect(void *dialogButtonBox, void *receiver, void *info, void (*slot_ptr)(void*)) {
+    QObject::connect(
+        static_cast<QDialogButtonBox*>(dialogButtonBox),
+        &QDialogButtonBox::rejected,
+        static_cast<QObject*>(receiver),
+        [info, slot_ptr]() {
+            (*slot_ptr)(info);
+        }
+    );
+}
+
