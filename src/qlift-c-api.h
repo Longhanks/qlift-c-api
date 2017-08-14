@@ -8,6 +8,7 @@ extern "C" {
 #define QLIFT_C_API_INTERNAL
 
 #include "qlift-c-api/qlift-QAbstractButton.h"
+#include "qlift-c-api/qlift-QAbstractSpinBox.h"
 #include "qlift-c-api/qlift-QAction.h"
 #include "qlift-c-api/qlift-QApplication.h"
 #include "qlift-c-api/qlift-QBoxLayout.h"
