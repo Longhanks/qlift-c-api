@@ -41,3 +41,11 @@ void QWidget_setGeometry(void *widget, void *rect) {
     }
 }
 
+int QWidget_isEnabled(void *widget) {
+    return static_cast<QWidget*>(widget)->isEnabled();
+}
+
+void QWidget_setEnabled(void *widget, int enabled) {
+    static_cast<QWidget*>(widget)->setEnabled(enabled);
+}
+

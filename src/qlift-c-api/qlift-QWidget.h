@@ -17,6 +17,8 @@ const char* QWidget_windowTitle(void *widget);
 void QWidget_setWindowTitle(void *widget, const char *title);
 void* QWidget_geometry(void *widget);
 void QWidget_setGeometry(void *widget, void *rect);
+int QWidget_isEnabled(void *widget);
+void QWidget_setEnabled(void *widget, int enabled);
 
 #ifdef __cplusplus
 }
