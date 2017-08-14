@@ -17,6 +17,7 @@ extern "C" {
 #include "qlift-c-api/qlift-QDialog.h"
 #include "qlift-c-api/qlift-QDialogButtonBox.h"
 #include "qlift-c-api/qlift-QFrame.h"
+#include "qlift-c-api/qlift-QGridLayout.h"
 #include "qlift-c-api/qlift-QGroupBox.h"
 #include "qlift-c-api/qlift-QGuiApplication.h"
 #include "qlift-c-api/qlift-QHBoxLayout.h"
