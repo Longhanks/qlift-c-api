@@ -11,6 +11,7 @@ extern "C" {
 
 void* QWidget_new(void *parent, int flags);
 void QWidget_delete(void *widget);
+int QWidget_close(void *widget);
 void QWidget_show(void *widget);
 void QWidget_addAction(void *widget, void *action);
 const char* QWidget_windowTitle(void *widget);

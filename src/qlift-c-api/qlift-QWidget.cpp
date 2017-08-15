@@ -12,6 +12,10 @@ void QWidget_delete(void *widget) {
     delete static_cast<QWidget*>(widget);
 }
 
+int QWidget_close(void *widget) {
+    return static_cast<QWidget*>(widget)->close();
+}
+
 void QWidget_show(void *widget) {
     static_cast<QWidget*>(widget)->show();
 }
