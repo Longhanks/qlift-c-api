@@ -11,6 +11,7 @@ extern "C" {
 
 void* QApplication_new(int *argc, char *argv[]);
 void QApplication_delete(void *application);
+void* QApplication_desktop(void);
 
 #ifdef __cplusplus
 }

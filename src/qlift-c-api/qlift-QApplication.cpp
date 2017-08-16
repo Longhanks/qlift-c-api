@@ -12,3 +12,7 @@ void QApplication_delete(void *application) {
     delete static_cast<QApplication*>(application);
 }
 
+void* QApplication_desktop(void) {
+    return static_cast<void*>(QApplication::desktop());
+}
+
