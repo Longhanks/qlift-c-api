@@ -31,6 +31,7 @@ extern "C" {
 #include "qlift-c-api/qlift-QMenu.h"
 #include "qlift-c-api/qlift-QMenuBar.h"
 #include "qlift-c-api/qlift-QObject.h"
+#include "qlift-c-api/qlift-QPoint.h"
 #include "qlift-c-api/qlift-QPushButton.h"
 #include "qlift-c-api/qlift-QRect.h"
 #include "qlift-c-api/qlift-QSpacerItem.h"
