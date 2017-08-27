@@ -13,7 +13,7 @@ void* QAction_new(void *icon, const char *text, void *parent);
 void QAction_delete(void *pushButton);
 const char* QAction_text(void *action);
 void QAction_setText(void *action, const char *text);
-void QAction_triggered_connect(void *action, void *receiver, void *info, void (*slot_ptr)(void*, int));
+void QAction_triggered_connect(void *action, void *receiver, void *context, void (*slot_ptr)(void*, bool));
 
 #ifdef __cplusplus
 }

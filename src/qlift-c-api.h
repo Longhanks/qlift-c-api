@@ -1,6 +1,8 @@
 #ifndef QLIFT_C_API_H
 #define QLIFT_C_API_H
 
+#include <stdbool.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

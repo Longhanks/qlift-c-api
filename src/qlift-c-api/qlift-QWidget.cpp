@@ -12,7 +12,7 @@ void QWidget_delete(void *widget) {
     delete static_cast<QWidget*>(widget);
 }
 
-int QWidget_close(void *widget) {
+bool QWidget_close(void *widget) {
     return static_cast<QWidget*>(widget)->close();
 }
 
@@ -45,11 +45,11 @@ void QWidget_setGeometry(void *widget, void *rect) {
     }
 }
 
-int QWidget_isEnabled(void *widget) {
+bool QWidget_isEnabled(void *widget) {
     return static_cast<QWidget*>(widget)->isEnabled();
 }
 
-void QWidget_setEnabled(void *widget, int enabled) {
+void QWidget_setEnabled(void *widget, bool enabled) {
     static_cast<QWidget*>(widget)->setEnabled(enabled);
 }
 

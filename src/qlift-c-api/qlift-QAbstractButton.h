@@ -11,7 +11,7 @@ extern "C" {
 
 const char* QAbstractButton_text(void *abstractButton);
 void QAbstractButton_setText(void *abstractButton, const char *text);
-void QAbstractButton_clicked_connect(void *abstractButton, void *receiver, void *info, void (*slot_ptr)(void*, int));
+void QAbstractButton_clicked_connect(void *abstractButton, void *receiver, void *context, void (*slot_ptr)(void*, bool));
 
 #ifdef __cplusplus
 }

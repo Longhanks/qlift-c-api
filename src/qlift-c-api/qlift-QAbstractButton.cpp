@@ -12,13 +12,13 @@ void QAbstractButton_setText(void *abstractButton, const char *text) {
     static_cast<QAbstractButton*>(abstractButton)->setText(text);
 }
 
-void QAbstractButton_clicked_connect(void *abstractButton, void *receiver, void *info, void (*slot_ptr)(void*, int)) {
+void QAbstractButton_clicked_connect(void *abstractButton, void *receiver, void *context, void (*slot_ptr)(void*, bool)) {
     QObject::connect(
         static_cast<QAbstractButton*>(abstractButton),
         &QAbstractButton::clicked,
         static_cast<QObject*>(receiver),
-        [info, slot_ptr](int checked) {
-            (*slot_ptr)(info, checked);
+        [context, slot_ptr](bool checked) {
+            (*slot_ptr)(context, checked);
         }
     );
 }

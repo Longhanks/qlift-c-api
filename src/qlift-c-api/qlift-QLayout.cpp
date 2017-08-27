@@ -4,11 +4,11 @@
 #include "qlift-QLayout.h"
 
 
-int QLayout_isEnabled(void *layout) {
+bool QLayout_isEnabled(void *layout) {
     return static_cast<QLayout*>(layout)->isEnabled();
 }
 
-void QLayout_setEnabled(void *layout, int enabled) {
+void QLayout_setEnabled(void *layout, bool enabled) {
     static_cast<QLayout*>(layout)->setEnabled(enabled);
 }
 

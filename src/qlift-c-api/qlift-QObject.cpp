@@ -16,13 +16,13 @@ void* QObject_parent(void *object) {
     return static_cast<QObject*>(object)->parent();
 }
 
-void QObject_destroyed_connect(void *object, void *receiver, void *info, void (*slot_ptr)(void*)) {
+void QObject_destroyed_connect(void *object, void *receiver, void *context, void (*slot_ptr)(void*)) {
     QObject::connect(
         static_cast<QObject*>(object),
         &QObject::destroyed,
         static_cast<QObject*>(receiver),
-        [info, slot_ptr]() {
-            (*slot_ptr)(info);
+        [context, slot_ptr]() {
+            (*slot_ptr)(context);
         }
     );
 }

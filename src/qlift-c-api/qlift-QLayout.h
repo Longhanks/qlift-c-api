@@ -9,8 +9,8 @@ extern "C" {
 #error "Only <qlift-c-api.h> can be included."
 #endif
 
-int QLayout_isEnabled(void *layout);
-void QLayout_setEnabled(void *layout, int enabled);
+bool QLayout_isEnabled(void *layout);
+void QLayout_setEnabled(void *layout, bool enabled);
 int QLayout_sizeConstraint(void *layout);
 void QLayout_setSizeConstraint(void *layout, int sizeConstraint);
 
