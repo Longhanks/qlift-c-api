@@ -24,6 +24,9 @@ int QWidget_height(void *widget);
 int QWidget_width(void *widget);
 void* QWidget_pos(void *widget);
 void QWidget_move(void *widget, void *point);
+void* QWidget_window(void *widget);
+void* QWidget_rect(void *widget);
+void* QWidget_frameGeometry(void *widget);
 
 #ifdef __cplusplus
 }

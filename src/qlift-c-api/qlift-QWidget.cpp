@@ -74,3 +74,17 @@ void QWidget_move(void *widget, void *point) {
     }
 }
 
+void* QWidget_window(void *widget) {
+    return static_cast<void*>(static_cast<QWidget*>(widget)->window());
+}
+
+void* QWidget_rect(void *widget) {
+    auto stackRect = static_cast<QWidget*>(widget)->rect();
+    return static_cast<void*>(new QRect {stackRect.x(), stackRect.y(), stackRect.width(), stackRect.height()});
+}
+
+void* QWidget_frameGeometry(void *widget) {
+    auto stackRect = static_cast<QWidget*>(widget)->frameGeometry();
+    return static_cast<void*>(new QRect {stackRect.x(), stackRect.y(), stackRect.width(), stackRect.height()});
+}
+
