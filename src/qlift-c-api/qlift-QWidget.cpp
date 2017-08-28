@@ -53,3 +53,24 @@ void QWidget_setEnabled(void *widget, bool enabled) {
     static_cast<QWidget*>(widget)->setEnabled(enabled);
 }
 
+int QWidget_height(void *widget) {
+    return static_cast<QWidget*>(widget)->height();
+}
+
+int QWidget_width(void *widget) {
+    return static_cast<QWidget*>(widget)->width();
+}
+
+void* QWidget_pos(void *widget) {
+    auto stackPoint = static_cast<QWidget*>(widget)->pos();
+    return static_cast<void*>(new QPoint {stackPoint.x(), stackPoint.y()});
+}
+
+void QWidget_move(void *widget, void *point) {
+    if (point) {
+        static_cast<QWidget*>(widget)->move(*static_cast<QPoint*>(point));
+    } else {
+        static_cast<QWidget*>(widget)->move(QPoint());
+    }
+}
+

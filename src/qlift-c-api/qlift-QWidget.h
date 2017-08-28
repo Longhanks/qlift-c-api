@@ -20,6 +20,10 @@ void* QWidget_geometry(void *widget);
 void QWidget_setGeometry(void *widget, void *rect);
 bool QWidget_isEnabled(void *widget);
 void QWidget_setEnabled(void *widget, bool enabled);
+int QWidget_height(void *widget);
+int QWidget_width(void *widget);
+void* QWidget_pos(void *widget);
+void QWidget_move(void *widget, void *point);
 
 #ifdef __cplusplus
 }
