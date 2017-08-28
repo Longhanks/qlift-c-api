@@ -88,3 +88,7 @@ void* QWidget_frameGeometry(void *widget) {
     return static_cast<void*>(new QRect {stackRect.x(), stackRect.y(), stackRect.width(), stackRect.height()});
 }
 
+bool QWidget_isWindow(void *widget) {
+    return static_cast<QWidget*>(widget)->isWindow();
+}
+
