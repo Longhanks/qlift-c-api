@@ -17,6 +17,10 @@ int QPoint_x(void *point);
 int QPoint_y(void *point);
 void QPoint_setX(void *point, int x);
 void QPoint_setY(void *point, int y);
+bool QPoint_equal(void *p1, void *p2);
+bool QPoint_unequal(void *p1, void *p2);
+void* QPoint_add(void *p1, void *p2);
+void* QPoint_substract(void *p1, void *p2);
 
 #ifdef __cplusplus
 }
