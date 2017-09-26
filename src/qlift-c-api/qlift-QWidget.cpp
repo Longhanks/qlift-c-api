@@ -83,6 +83,10 @@ void* QWidget_rect(void *widget) {
     return static_cast<void*>(new QRect {stackRect.x(), stackRect.y(), stackRect.width(), stackRect.height()});
 }
 
+void QWidget_resize(void *widget, int w, int h) {
+    static_cast<QWidget*>(widget)->resize(w, h);
+}
+
 void* QWidget_frameGeometry(void *widget) {
     auto stackRect = static_cast<QWidget*>(widget)->frameGeometry();
     return static_cast<void*>(new QRect {stackRect.x(), stackRect.y(), stackRect.width(), stackRect.height()});
