@@ -9,7 +9,7 @@ extern "C" {
 #error "Only <qlift-c-api.h> can be included."
 #endif
 
-void QTimer_singleShot(int msec, int timerType, void (*slot_ptr)(void));
+void QTimer_singleShot(int msec, int timerType, void *context, void (*slot_ptr)(void*));
 
 #ifdef __cplusplus
 }
