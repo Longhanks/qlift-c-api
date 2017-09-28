@@ -1,6 +1,5 @@
 #include <QDialog>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QDialog.h"
 
 

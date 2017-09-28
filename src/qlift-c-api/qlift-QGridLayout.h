@@ -5,10 +5,6 @@
 extern "C" {
 #endif
 
-#if !defined(QLIFT_C_API_INTERNAL)
-#error "Only <qlift-c-api.h> can be included."
-#endif
-
 void* QGridLayout_new(void *parent);
 void QGridLayout_delete(void *gridLayout);
 void QGridLayout_addItem(void *gridLayout, void *layoutItem, int row, int column, int rowSpan, int columnSpan, int alignment);

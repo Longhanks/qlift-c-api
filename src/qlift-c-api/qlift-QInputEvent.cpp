@@ -1,6 +1,5 @@
 #include <QInputEvent>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QInputEvent.h"
 
 

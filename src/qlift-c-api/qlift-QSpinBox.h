@@ -5,10 +5,6 @@
 extern "C" {
 #endif
 
-#if !defined(QLIFT_C_API_INTERNAL)
-#error "Only <qlift-c-api.h> can be included."
-#endif
-
 void* QSpinBox_new(void *parent);
 void QSpinBox_delete(void *spinBox);
 int QSpinBox_value(void *spinBox);

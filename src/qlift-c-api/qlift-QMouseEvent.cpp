@@ -1,6 +1,5 @@
 #include <QMouseEvent>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QMouseEvent.h"
 
 

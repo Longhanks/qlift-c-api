@@ -1,6 +1,5 @@
 #include <QObject>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QObject.h"
 
 

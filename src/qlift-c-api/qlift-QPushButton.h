@@ -5,10 +5,6 @@
 extern "C" {
 #endif
 
-#if !defined(QLIFT_C_API_INTERNAL)
-#error "Only <qlift-c-api.h> can be included."
-#endif
-
 void* QPushButton_new(void *icon, const char *text, void *parent);
 void QPushButton_delete(void *pushButton);
 void QPushButton_mousePressEvent(void *pushButton, void *mouseEvent);

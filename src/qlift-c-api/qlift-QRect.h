@@ -5,10 +5,6 @@
 extern "C" {
 #endif
 
-#if !defined(QLIFT_C_API_INTERNAL)
-#error "Only <qlift-c-api.h> can be included."
-#endif
-
 void* QRect_new(int x, int y, int width, int height);
 void QRect_delete(void *rect);
 int QRect_x(void *rect);

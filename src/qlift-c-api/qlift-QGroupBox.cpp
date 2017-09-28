@@ -1,6 +1,5 @@
 #include <QGroupBox>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QGroupBox.h"
 
 

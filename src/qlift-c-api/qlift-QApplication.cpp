@@ -1,6 +1,5 @@
 #include <QApplication>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QApplication.h"
 
 

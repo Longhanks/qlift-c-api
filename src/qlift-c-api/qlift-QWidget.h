@@ -5,10 +5,6 @@
 extern "C" {
 #endif
 
-#if !defined(QLIFT_C_API_INTERNAL)
-#error "Only <qlift-c-api.h> can be included."
-#endif
-
 void* QWidget_new(void *parent, int flags);
 void QWidget_delete(void *widget);
 bool QWidget_close(void *widget);

@@ -1,6 +1,5 @@
 #include <QSpinBox>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QSpinBox.h"
 
 

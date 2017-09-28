@@ -1,6 +1,5 @@
 #include <QGridLayout>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QGridLayout.h"
 
 

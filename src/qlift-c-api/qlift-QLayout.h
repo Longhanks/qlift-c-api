@@ -5,10 +5,6 @@
 extern "C" {
 #endif
 
-#if !defined(QLIFT_C_API_INTERNAL)
-#error "Only <qlift-c-api.h> can be included."
-#endif
-
 bool QLayout_isEnabled(void *layout);
 void QLayout_setEnabled(void *layout, bool enabled);
 int QLayout_sizeConstraint(void *layout);

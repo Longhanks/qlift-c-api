@@ -1,6 +1,5 @@
 #include <QDialogButtonBox>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QDialogButtonBox.h"
 
 

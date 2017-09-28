@@ -1,6 +1,5 @@
 #include <QWidget>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QWidget.h"
 
 

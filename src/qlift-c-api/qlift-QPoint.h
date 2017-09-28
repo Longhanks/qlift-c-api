@@ -5,10 +5,6 @@
 extern "C" {
 #endif
 
-#if !defined(QLIFT_C_API_INTERNAL)
-#error "Only <qlift-c-api.h> can be included."
-#endif
-
 void* QPoint_new(int x, int y);
 void QPoint_delete(void *point);
 bool QPoint_isNull(void *point);

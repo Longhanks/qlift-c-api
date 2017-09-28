@@ -1,6 +1,5 @@
 #include <QSpacerItem>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QSpacerItem.h"
 
 

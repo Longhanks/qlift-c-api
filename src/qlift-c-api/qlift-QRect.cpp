@@ -1,6 +1,5 @@
 #include <QRect>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QRect.h"
 
 

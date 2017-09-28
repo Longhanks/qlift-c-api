@@ -1,6 +1,5 @@
 #include <QLabel>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QLabel.h"
 
 

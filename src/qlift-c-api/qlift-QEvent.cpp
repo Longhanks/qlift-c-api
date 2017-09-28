@@ -1,6 +1,5 @@
 #include <QEvent>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QEvent.h"
 
 

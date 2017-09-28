@@ -1,6 +1,5 @@
 #include <QHBoxLayout>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QHBoxLayout.h"
 
 

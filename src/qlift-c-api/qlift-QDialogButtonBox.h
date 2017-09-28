@@ -5,10 +5,6 @@
 extern "C" {
 #endif
 
-#if !defined(QLIFT_C_API_INTERNAL)
-#error "Only <qlift-c-api.h> can be included."
-#endif
-
 void* QDialogButtonBox_new(void *parent);
 void QDialogButtonBox_delete(void *dialogButtonBox);
 int QDialogButtonBox_orientation(void *dialogButtonBox);

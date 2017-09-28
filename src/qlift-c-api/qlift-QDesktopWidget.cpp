@@ -1,6 +1,5 @@
 #include <QDesktopWidget>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QDesktopWidget.h"
 
 void* QDesktopWidget_availableGeometryWidget(void *desktopWidget, void *widget) {

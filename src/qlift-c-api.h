@@ -7,8 +7,6 @@
 extern "C" {
 #endif
 
-#define QLIFT_C_API_INTERNAL
-
 #include "qlift-c-api/qlift-QAbstractButton.h"
 #include "qlift-c-api/qlift-QAbstractSpinBox.h"
 #include "qlift-c-api/qlift-QAction.h"
@@ -32,6 +30,7 @@ extern "C" {
 #include "qlift-c-api/qlift-QMainWindow.h"
 #include "qlift-c-api/qlift-QMenu.h"
 #include "qlift-c-api/qlift-QMenuBar.h"
+#include "qlift-c-api/qlift-QMessageBox.h"
 #include "qlift-c-api/qlift-QMouseEvent.h"
 #include "qlift-c-api/qlift-QObject.h"
 #include "qlift-c-api/qlift-QPoint.h"

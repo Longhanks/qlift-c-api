@@ -1,6 +1,5 @@
 #include <QAbstractSpinBox>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QAbstractSpinBox.h"
 
 

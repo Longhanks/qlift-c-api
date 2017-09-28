@@ -1,7 +1,6 @@
 #include <QPushButton>
 #include <wobjectimpl.h>
 
-#define QLIFT_C_API_INTERNAL
 #include "qlift-QPushButton.h"
 
 

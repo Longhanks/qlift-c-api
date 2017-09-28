@@ -5,10 +5,6 @@
 extern "C" {
 #endif
 
-#if !defined(QLIFT_C_API_INTERNAL)
-#error "Only <qlift-c-api.h> can be included."
-#endif
-
 void* QAction_new(void *icon, const char *text, void *parent);
 void QAction_delete(void *pushButton);
 const char* QAction_text(void *action);
