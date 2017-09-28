@@ -6,6 +6,8 @@ extern "C" {
 #endif
 
 void QEvent_delete(void *event);
+void QEvent_accept(void *event);
+void QEvent_ignore(void *event);
 
 #ifdef __cplusplus
 }
