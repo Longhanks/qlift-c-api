@@ -95,3 +95,15 @@ bool QWidget_isWindow(void *widget) {
     return static_cast<QWidget*>(widget)->isWindow();
 }
 
+void QWidget_setStyleSheet(void *widget, const char *styleSheet) {
+    static_cast<QWidget*>(widget)->setStyleSheet(styleSheet);
+}
+
+void QWidget_setMaximumSize(void *widget, void *size) {
+    if (size) {
+        static_cast<QWidget*>(widget)->setMaximumSize(*static_cast<QSize*>(size));
+    } else {
+        static_cast<QWidget*>(widget)->setMaximumSize(QSize());
+    }
+}
+
