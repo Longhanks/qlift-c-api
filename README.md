@@ -1,5 +1,5 @@
 # qlift-c-api
-C API to Qt for Qlift
+C API to Qt for [Qlift](https://github.com/Longhanks/Qlift "Qlift")
 
 [![Build Status](https://travis-ci.org/Longhanks/qlift-c-api.svg?branch=master)](https://travis-ci.org/Longhanks/qlift-c-api)
 
