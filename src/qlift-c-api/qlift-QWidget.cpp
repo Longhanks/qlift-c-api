@@ -95,10 +95,6 @@ bool QWidget_isWindow(void *widget) {
     return static_cast<QWidget*>(widget)->isWindow();
 }
 
-void QWidget_setStyleSheet(void *widget, const char *styleSheet) {
-    static_cast<QWidget*>(widget)->setStyleSheet(styleSheet);
-}
-
 void* QWidget_maximumSize(void *widget) {
     auto stackSize = static_cast<QWidget*>(widget)->maximumSize();
     return new QSize {stackSize.width(), stackSize.height() };
@@ -110,5 +106,13 @@ void QWidget_setMaximumSize(void *widget, void *size) {
     } else {
         static_cast<QWidget*>(widget)->setMaximumSize(QSize());
     }
+}
+
+const char* QWidget_styleSheet(void *widget) {
+    return static_cast<QWidget*>(widget)->styleSheet().toLocal8Bit().data();
+}
+
+void QWidget_setStyleSheet(void *widget, const char *styleSheet) {
+    static_cast<QWidget*>(widget)->setStyleSheet(styleSheet);
 }
 
