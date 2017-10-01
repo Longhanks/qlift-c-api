@@ -99,6 +99,11 @@ void QWidget_setStyleSheet(void *widget, const char *styleSheet) {
     static_cast<QWidget*>(widget)->setStyleSheet(styleSheet);
 }
 
+void* QWidget_maximumSize(void *widget) {
+    auto stackSize = static_cast<QWidget*>(widget)->maximumSize();
+    return new QSize {stackSize.width(), stackSize.height() };
+}
+
 void QWidget_setMaximumSize(void *widget, void *size) {
     if (size) {
         static_cast<QWidget*>(widget)->setMaximumSize(*static_cast<QSize*>(size));

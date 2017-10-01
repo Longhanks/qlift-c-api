@@ -26,6 +26,7 @@ void QWidget_resize(void *widget, int w, int h);
 void* QWidget_frameGeometry(void *widget);
 bool QWidget_isWindow(void *widget);
 void QWidget_setStyleSheet(void *widget, const char *styleSheet);
+void* QWidget_maximumSize(void *widget);
 void QWidget_setMaximumSize(void *widget, void *size);
 
 #ifdef __cplusplus
