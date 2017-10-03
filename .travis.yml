@@ -22,7 +22,7 @@ before_install:
       source $QT_ENV_SCRIPT;
     fi
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then
-      brew install qt cmake;
+      brew install qt;
     fi
 
 script:
