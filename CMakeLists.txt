@@ -221,6 +221,7 @@ set(SOURCES
     src/qlift-c-api/qlift-QPushButton.cpp
     src/qlift-c-api/qlift-QRect.cpp
     src/qlift-c-api/qlift-QSize.cpp
+    src/qlift-c-api/qlift-QSizePolicy.cpp
     src/qlift-c-api/qlift-QSpacerItem.cpp
     src/qlift-c-api/qlift-QSpinBox.cpp
     src/qlift-c-api/qlift-QTimer.cpp

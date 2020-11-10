@@ -50,6 +50,10 @@ LIBRARY_API void *QWidget_maximumSize(void *widget);
 
 LIBRARY_API void QWidget_setMaximumSize(void *widget, void *size);
 
+LIBRARY_API void *QWidget_sizePolicy(void *widget);
+
+LIBRARY_API void QWidget_setSizePolicy(void *widget, void *policy);
+
 LIBRARY_API const char *QWidget_styleSheet(void *widget);
 
 LIBRARY_API void QWidget_setStyleSheet(void *widget, const char *styleSheet);

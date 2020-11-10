@@ -35,6 +35,7 @@
 #include "qlift-c-api/qlift-QPushButton.h"
 #include "qlift-c-api/qlift-QRect.h"
 #include "qlift-c-api/qlift-QSize.h"
+#include "qlift-c-api/qlift-QSizePolicy.h"
 #include "qlift-c-api/qlift-QSpacerItem.h"
 #include "qlift-c-api/qlift-QSpinBox.h"
 #include "qlift-c-api/qlift-QTimer.h"

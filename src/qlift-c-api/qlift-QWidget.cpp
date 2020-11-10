@@ -114,6 +114,18 @@
     }
 }
 
+[[maybe_unused]] void *QWidget_sizePolicy(void *widget) {
+    auto stackPolicy = static_cast<QWidget *>(widget)->sizePolicy();
+    return static_cast<void *>(new QSizePolicy{stackPolicy.horizontalPolicy(),
+                                               stackPolicy.verticalPolicy(),
+                                               stackPolicy.controlType()});
+}
+
+[[maybe_unused]] void QWidget_setSizePolicy(void *widget, void *policy) {
+    static_cast<QWidget *>(widget)->setSizePolicy(
+        *static_cast<QSizePolicy *>(policy));
+}
+
 [[maybe_unused]] const char *QWidget_styleSheet(void *widget) {
     return static_cast<QWidget *>(widget)->styleSheet().toLocal8Bit().data();
 }
