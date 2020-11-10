@@ -211,6 +211,7 @@ set(SOURCES
     src/qlift-c-api/qlift-QLayout.cpp
     src/qlift-c-api/qlift-QLayoutItem.cpp
     src/qlift-c-api/qlift-QMainWindow.cpp
+    src/qlift-c-api/qlift-QMargins.cpp
     src/qlift-c-api/qlift-QMenu.cpp
     src/qlift-c-api/qlift-QMenuBar.cpp
     src/qlift-c-api/qlift-QMessageBox.cpp
