@@ -1,16 +1,15 @@
-#ifndef QLIFT_C_API_QLIFT_QLAYOUTITEM_H
-#define QLIFT_C_API_QLIFT_QLAYOUTITEM_H
+#pragma once
+
+#include "compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-unsigned int QLayoutItem_alignment(void *layoutItem);
-void QLayoutItem_setAlignment(void *layoutItem, int alignment);
+LIBRARY_API unsigned int QLayoutItem_alignment(void *layoutItem);
+
+LIBRARY_API void QLayoutItem_setAlignment(void *layoutItem, int alignment);
 
 #ifdef __cplusplus
 }
 #endif
-
-#endif //QLIFT_C_API_QLIFT_QLAYOUTITEM_H
-

@@ -1,15 +1,14 @@
-#ifndef QLIFT_C_API_QLIFT_QDESKTOPWIDGET_H
-#define QLIFT_C_API_QLIFT_QDESKTOPWIDGET_H
+#pragma once
+
+#include "compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void* QDesktopWidget_availableGeometryWidget(void *desktopWidget, void *widget);
+LIBRARY_API void *QDesktopWidget_availableGeometryWidget(void *desktopWidget,
+                                                         void *widget);
 
 #ifdef __cplusplus
 }
 #endif
-
-#endif //QLIFT_C_API_QLIFT_QDESKTOPWIDGET_H
-

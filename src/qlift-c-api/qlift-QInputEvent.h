@@ -1,15 +1,13 @@
-#ifndef QLIFT_C_API_QLIFT_QINPUTEVENT_H
-#define QLIFT_C_API_QLIFT_QINPUTEVENT_H
+#pragma once
+
+#include "compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void QInputEvent_delete(void *inputEvent);
+LIBRARY_API void QInputEvent_delete(void *inputEvent);
 
 #ifdef __cplusplus
 }
 #endif
-
-#endif //QLIFT_C_API_QLIFT_QINPUTEVENT_H
-

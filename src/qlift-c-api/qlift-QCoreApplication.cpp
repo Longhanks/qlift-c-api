@@ -2,20 +2,19 @@
 
 #include "qlift-QCoreApplication.h"
 
-
-void* QCoreApplication_new(int *argc, char *argv[]) {
-    return static_cast<QCoreApplication*>(new QCoreApplication {*argc, argv});
+// NOLINTNEXTLINE(readability-non-const-parameter)
+[[maybe_unused]] void *QCoreApplication_new(int *argc, char *argv[]) {
+    return new QCoreApplication{*argc, argv};
 }
 
-void QCoreApplication_delete(void *coreApplication) {
-    delete static_cast<QCoreApplication*>(coreApplication);
+[[maybe_unused]] void QCoreApplication_delete(void *coreApplication) {
+    delete static_cast<QCoreApplication *>(coreApplication);
 }
 
-int QCoreApplication_exec(void *coreApplication) {
-    return static_cast<QCoreApplication*>(coreApplication)->exec();
+[[maybe_unused]] int QCoreApplication_exec(void) {
+    return QCoreApplication::exec();
 }
 
-void QCoreApplication_exit(void *coreApplication, int returnCode) {
-    static_cast<QCoreApplication*>(coreApplication)->exit(returnCode);
+[[maybe_unused]] void QCoreApplication_exit(int returnCode) {
+    QCoreApplication::exit(returnCode);
 }
-

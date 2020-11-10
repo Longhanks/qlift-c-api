@@ -2,12 +2,11 @@
 
 #include "qlift-QGuiApplication.h"
 
-
-void* QGuiApplication_new(int *argc, char *argv[]) {
-    return static_cast<QGuiApplication*>(new QGuiApplication {*argc, argv});
+// NOLINTNEXTLINE(readability-non-const-parameter)
+[[maybe_unused]] void *QGuiApplication_new(int *argc, char *argv[]) {
+    return new QGuiApplication{*argc, argv};
 }
 
-void QGuiApplication_delete(void *guiApplication) {
-    delete static_cast<QGuiApplication*>(guiApplication);
+[[maybe_unused]] void QGuiApplication_delete(void *guiApplication) {
+    delete static_cast<QGuiApplication *>(guiApplication);
 }
-

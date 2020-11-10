@@ -1,35 +1,55 @@
-#ifndef QLIFT_C_API_QLIFT_QPUSHBUTTON_H
-#define QLIFT_C_API_QLIFT_QPUSHBUTTON_H
+#pragma once
+
+#include "compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void* QPushButton_new(void *icon, const char *text, void *parent);
-void QPushButton_delete(void *pushButton);
-void QPushButton_mousePressEvent(void *pushButton, void *mouseEvent);
-void QPushButton_mousePressEvent_Override(void *pushButton, void *context, void (*mousePressEvent_Functor)(void*, void*));
+LIBRARY_API void *QPushButton_new(void *icon, const char *text, void *parent);
+
+LIBRARY_API void QPushButton_delete(void *pushButton);
+
+LIBRARY_API void QPushButton_mousePressEvent(void *pushButton,
+                                             void *mouseEvent);
+
+LIBRARY_API void QPushButton_mousePressEvent_Override(
+    void *pushButton,
+    void *context,
+    void (*mousePressEvent_Functor)(void *, void *));
 
 #ifdef __cplusplus
 }
 #endif
 
 #ifdef __cplusplus
+
+#include <QPushButton>
+
 #include <wobjectdefs.h>
-class QliftPushButton: public QPushButton {
+
+class QliftPushButton : public QPushButton {
     W_OBJECT(QliftPushButton)
 
-    public:
-        using QPushButton::QPushButton;
-        virtual ~QliftPushButton();
-        void (*mousePressEvent_Functor)(void*, void*) = nullptr;
-        void *context = nullptr;
-        void mousePressEventSuper(QMouseEvent *e);
+public:
+    using QPushButton::QPushButton;
+    ~QliftPushButton() noexcept override = default;
+    QliftPushButton(const QliftPushButton &) = delete;
+    QliftPushButton &operator=(QliftPushButton &) = delete;
+    QliftPushButton(QliftPushButton &&) noexcept = delete;
+    QliftPushButton &operator=(QliftPushButton &&) noexcept = delete;
 
-    protected:
-        virtual void mousePressEvent(QMouseEvent *e) override;
+    void mousePressEventSuper(QMouseEvent *mouseEvent);
+    void mousePressEventOverride(void *context,
+                                 void (*mousePressEvent_Functor)(void *,
+                                                                 void *));
+
+protected:
+    void mousePressEvent(QMouseEvent *mouseEvent) override;
+
+private:
+    void (*m_mousePressEvent_Functor)(void *, void *) = nullptr;
+    void *m_mousePressEvent_Context = nullptr;
 };
+
 #endif
-
-#endif //QLIFT_C_API_QLIFT_QPUSHBUTTON_H
-

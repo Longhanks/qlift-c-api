@@ -1,0 +1,1 @@
+Checks: '*,-cppcoreguidelines-owning-memory,-fuchsia-*,-modernize-use-trailing-return-type,-google-runtime-references,-llvmlibc-callee-namespace'

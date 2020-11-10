@@ -1,39 +1,61 @@
-#ifndef QLIFT_C_API_QLIFT_QMAINWINDOW_H
-#define QLIFT_C_API_QLIFT_QMAINWINDOW_H
+#pragma once
+
+#include "compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void* QMainWindow_new(void *parent, int flags);
-void QMainWindow_delete(void *mainWindow);
-void* QMainWindow_centralWidget(void *mainWindow);
-void QMainWindow_setCentralWidget(void *mainWindow, void *widget);
-void* QMainWindow_menuBar(void *mainWindow);
-void QMainWindow_setMenuBar(void *mainWindow, void *menuBar);
-void QMainWindow_closeEvent(void *mainWindow, void *event);
-void QMainWindow_closeEvent_Override(void *mainWindow, void *context, void (*closeEvent_Functor)(void*, void*));
+LIBRARY_API void *QMainWindow_new(void *parent, int flags);
+
+LIBRARY_API void QMainWindow_delete(void *mainWindow);
+
+LIBRARY_API void *QMainWindow_centralWidget(void *mainWindow);
+
+LIBRARY_API void QMainWindow_setCentralWidget(void *mainWindow, void *widget);
+
+LIBRARY_API void *QMainWindow_menuBar(void *mainWindow);
+
+LIBRARY_API void QMainWindow_setMenuBar(void *mainWindow, void *menuBar);
+
+LIBRARY_API void QMainWindow_closeEvent(void *mainWindow, void *event);
+
+LIBRARY_API void
+QMainWindow_closeEvent_Override(void *mainWindow,
+                                void *context,
+                                void (*closeEvent_Functor)(void *, void *));
 
 #ifdef __cplusplus
 }
 #endif
 
 #ifdef __cplusplus
+
+#include <QMainWindow>
+
 #include <wobjectdefs.h>
-class QliftMainWindow: public QMainWindow {
+
+class QliftMainWindow : public QMainWindow {
     W_OBJECT(QliftMainWindow)
 
-    public:
-        using QMainWindow::QMainWindow;
-        virtual ~QliftMainWindow();
-        void (*closeEvent_Functor)(void*, void*) = nullptr;
-        void *context = nullptr;
-        void closeEventSuper(QCloseEvent *e);
+public:
+    using QMainWindow::QMainWindow;
+    ~QliftMainWindow() override = default;
+    QliftMainWindow(const QliftMainWindow &) = delete;
+    QliftMainWindow &operator=(QliftMainWindow &) = delete;
+    QliftMainWindow(QliftMainWindow &&) noexcept = delete;
+    QliftMainWindow &operator=(QliftMainWindow &&) noexcept = delete;
 
-    protected:
-        virtual void closeEvent(QCloseEvent *e) override;
+    void closeEventSuper(QCloseEvent *closeEvent);
+    void closeEventOverride(void *context,
+                            void (*closeEvent_Functor)(void *, void *));
+
+protected:
+    void closeEvent(QCloseEvent *closeEvent) override;
+
+private:
+    void (*m_closeEvent_Functor)(void *, void *) = nullptr;
+    void *m_closeEvent_Context = nullptr;
 };
+
 #endif
-
-#endif //QLIFT_C_API_QLIFT_QMAINWINDOW_H
-

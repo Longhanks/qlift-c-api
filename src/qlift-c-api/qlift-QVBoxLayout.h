@@ -1,16 +1,15 @@
-#ifndef QLIFT_C_API_QLIFT_QVBOXLAYOUT_H
-#define QLIFT_C_API_QLIFT_QVBOXLAYOUT_H
+#pragma once
+
+#include "compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void* QVBoxLayout_new(void *parent);
-void QVBoxLayout_delete(void *vBoxLayout);
+LIBRARY_API void *QVBoxLayout_new(void *parent);
+
+LIBRARY_API void QVBoxLayout_delete(void *vBoxLayout);
 
 #ifdef __cplusplus
 }
 #endif
-
-#endif //QLIFT_C_API_QLIFT_QVBOXLAYOUT_H
-

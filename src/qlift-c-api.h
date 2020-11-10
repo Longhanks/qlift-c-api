@@ -1,11 +1,7 @@
-#ifndef QLIFT_C_API_H
-#define QLIFT_C_API_H
+#pragma once
 
+// NOLINTNEXTLINE(hicpp-deprecated-headers, modernize-deprecated-headers)
 #include <stdbool.h>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #include "qlift-c-api/qlift-QAbstractButton.h"
 #include "qlift-c-api/qlift-QAbstractSpinBox.h"
@@ -43,9 +39,3 @@ extern "C" {
 #include "qlift-c-api/qlift-QTimer.h"
 #include "qlift-c-api/qlift-QVBoxLayout.h"
 #include "qlift-c-api/qlift-QWidget.h"
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* QLIFT-C-API-H */

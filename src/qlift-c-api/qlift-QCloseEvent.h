@@ -1,15 +1,13 @@
-#ifndef QLIFT_C_API_QLIFT_QCLOSEEVENT_H
-#define QLIFT_C_API_QLIFT_QCLOSEEVENT_H
+#pragma once
+
+#include "compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void QCloseEvent_delete(void *closeEvent);
+LIBRARY_API void QCloseEvent_delete(void *closeEvent);
 
 #ifdef __cplusplus
 }
 #endif
-
-#endif //QLIFT_C_API_QLIFT_QCLOSEEVENT_H
-

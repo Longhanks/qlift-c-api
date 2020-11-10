@@ -2,8 +2,6 @@
 
 #include "qlift-QCloseEvent.h"
 
-
-void QCloseEvent_delete(void *closeEvent) {
-    delete static_cast<QCloseEvent*>(closeEvent);
+[[maybe_unused]] void QCloseEvent_delete(void *closeEvent) {
+    delete static_cast<QCloseEvent *>(closeEvent);
 }
-

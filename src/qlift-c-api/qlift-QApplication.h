@@ -1,17 +1,17 @@
-#ifndef QLIFT_C_API_QLIFT_QAPPLICATION_H
-#define QLIFT_C_API_QLIFT_QAPPLICATION_H
+#pragma once
+
+#include "compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void* QApplication_new(int *argc, char *argv[]);
-void QApplication_delete(void *application);
-void* QApplication_desktop(void);
+LIBRARY_API void *QApplication_new(int *argc, char *argv[]);
+
+LIBRARY_API void QApplication_delete(void *application);
+
+LIBRARY_API void *QApplication_desktop(void);
 
 #ifdef __cplusplus
 }
 #endif
-
-#endif //QLIFT_C_API_QLIFT_QAPPLICATION_H
-

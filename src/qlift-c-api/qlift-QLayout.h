@@ -1,18 +1,19 @@
-#ifndef QLIFT_C_API_QLIFT_QLAYOUT_H
-#define QLIFT_C_API_QLIFT_QLAYOUT_H
+#pragma once
+
+#include "compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-bool QLayout_isEnabled(void *layout);
-void QLayout_setEnabled(void *layout, bool enabled);
-int QLayout_sizeConstraint(void *layout);
-void QLayout_setSizeConstraint(void *layout, int sizeConstraint);
+LIBRARY_API bool QLayout_isEnabled(void *layout);
+
+LIBRARY_API void QLayout_setEnabled(void *layout, bool enabled);
+
+LIBRARY_API int QLayout_sizeConstraint(void *layout);
+
+LIBRARY_API void QLayout_setSizeConstraint(void *layout, int sizeConstraint);
 
 #ifdef __cplusplus
 }
 #endif
-
-#endif //QLIFT_C_API_QLIFT_QLAYOUT_H
-

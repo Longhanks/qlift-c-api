@@ -1,19 +1,21 @@
-#ifndef QLIFT_C_API_QLIFT_QMENU_H
-#define QLIFT_C_API_QLIFT_QMENU_H
+#pragma once
+
+#include "compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void* QMenu_new(const char *title, void *parent);
-void QMenu_delete(void *menu);
-const char* QMenu_title(void *menu);
-void QMenu_setTitle(void *menu, const char *title);
-void* QMenu_menuAction(void *menu);
+LIBRARY_API void *QMenu_new(const char *title, void *parent);
+
+LIBRARY_API void QMenu_delete(void *menu);
+
+LIBRARY_API const char *QMenu_title(void *menu);
+
+LIBRARY_API void QMenu_setTitle(void *menu, const char *title);
+
+LIBRARY_API void *QMenu_menuAction(void *menu);
 
 #ifdef __cplusplus
 }
 #endif
-
-#endif //QLIFT_C_API_QLIFT_QMENU_H
-

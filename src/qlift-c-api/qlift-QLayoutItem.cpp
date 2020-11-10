@@ -2,12 +2,12 @@
 
 #include "qlift-QLayoutItem.h"
 
-
-unsigned int QLayoutItem_alignment(void *layoutItem) {
+[[maybe_unused]] unsigned int QLayoutItem_alignment(void *layoutItem) {
     return static_cast<QLayoutItem *>(layoutItem)->alignment();
 }
 
-void QLayoutItem_setAlignment(void *layoutItem, int alignment) {
-    static_cast<QLayoutItem*>(layoutItem)->setAlignment(static_cast<QFlags<Qt::AlignmentFlag>>(alignment));
+[[maybe_unused]] void QLayoutItem_setAlignment(void *layoutItem,
+                                               int alignment) {
+    static_cast<QLayoutItem *>(layoutItem)
+        ->setAlignment(static_cast<QFlags<Qt::AlignmentFlag>>(alignment));
 }
-
