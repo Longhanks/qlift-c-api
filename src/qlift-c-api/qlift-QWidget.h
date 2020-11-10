@@ -32,6 +32,10 @@ LIBRARY_API int QWidget_height(void *widget);
 
 LIBRARY_API int QWidget_width(void *widget);
 
+LIBRARY_API void *QWidget_layout(void *widget);
+
+LIBRARY_API void QWidget_setLayout(void *widget, void *layout);
+
 LIBRARY_API void *QWidget_pos(void *widget);
 
 LIBRARY_API void QWidget_move(void *widget, void *point);
@@ -49,6 +53,13 @@ LIBRARY_API bool QWidget_isWindow(void *widget);
 LIBRARY_API void *QWidget_maximumSize(void *widget);
 
 LIBRARY_API void QWidget_setMaximumSize(void *widget, void *size);
+
+LIBRARY_API void QWidget_mousePressEvent(void *widget, void *mouseEvent);
+
+LIBRARY_API void QWidget_mousePressEvent_Override(
+    void *widget,
+    void *context,
+    void (*mousePressEvent_Functor)(void *, void *));
 
 LIBRARY_API void *QWidget_sizeHint(void *widget);
 
@@ -89,11 +100,21 @@ public:
     QliftWidget(QliftWidget &&) noexcept = delete;
     QliftWidget &operator=(QliftWidget &&) noexcept = delete;
 
+    void mousePressEventSuper(QMouseEvent *mouseEvent);
+    void mousePressEventOverride(void *context,
+                                 void (*mousePressEvent_Functor)(void *,
+                                                                 void *));
+
     [[nodiscard]] QSize sizeHintSuper() const;
     void sizeHintOverride(void *context, void *(*sizeHint_Functor)(void *));
     [[nodiscard]] QSize sizeHint() const override;
 
+protected:
+    void mousePressEvent(QMouseEvent *mouseEvent) override;
+
 private:
+    void (*m_mousePressEvent_Functor)(void *, void *) = nullptr;
+    void *m_mousePressEvent_Context = nullptr;
     void *(*m_sizeHint_Functor)(void *) = nullptr;
     void *m_sizeHint_Context = nullptr;
 };

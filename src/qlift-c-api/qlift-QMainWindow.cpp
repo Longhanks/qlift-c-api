@@ -67,5 +67,7 @@ W_OBJECT_IMPL(QliftMainWindow)
 [[maybe_unused]] void QliftMainWindow::closeEvent(QCloseEvent *e) {
     if (m_closeEvent_Functor != nullptr) {
         (*m_closeEvent_Functor)(m_closeEvent_Context, e);
+        return;
     }
+    QMainWindow::closeEvent(e);
 }

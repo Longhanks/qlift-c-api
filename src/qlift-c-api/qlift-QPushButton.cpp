@@ -55,5 +55,7 @@ QliftPushButton::mousePressEventSuper(QMouseEvent *mouseEvent) {
 QliftPushButton::mousePressEvent(QMouseEvent *mouseEvent) {
     if (m_mousePressEvent_Functor != nullptr) {
         (*m_mousePressEvent_Functor)(m_mousePressEvent_Context, mouseEvent);
+        return;
     }
+    QPushButton::mousePressEvent(mouseEvent);
 }

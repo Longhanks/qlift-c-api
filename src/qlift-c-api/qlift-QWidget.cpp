@@ -69,6 +69,14 @@
     return static_cast<QWidget *>(widget)->width();
 }
 
+[[maybe_unused]] void *QWidget_layout(void *widget) {
+    return static_cast<void *>(static_cast<QWidget *>(widget)->layout());
+}
+
+[[maybe_unused]] void QWidget_setLayout(void *widget, void *layout) {
+    static_cast<QWidget *>(widget)->setLayout(static_cast<QLayout *>(layout));
+}
+
 [[maybe_unused]] void *QWidget_pos(void *widget) {
     auto stackPoint = static_cast<QWidget *>(widget)->pos();
     return static_cast<void *>(new QPoint{stackPoint.x(), stackPoint.y()});
@@ -120,6 +128,19 @@
     }
 }
 
+[[maybe_unused]] void QWidget_mousePressEvent(void *widget, void *mouseEvent) {
+    static_cast<QliftWidget *>(widget)
+        ->mousePressEventSuper(static_cast<QMouseEvent *>(mouseEvent));
+}
+
+[[maybe_unused]] void QWidget_mousePressEvent_Override(
+    void *widget,
+    void *context,
+    void (*mousePressEvent_Functor)(void *, void *)) {
+    static_cast<QliftWidget *>(widget)
+        ->mousePressEventOverride(context, mousePressEvent_Functor);
+}
+
 [[maybe_unused]] void *QWidget_sizePolicy(void *widget) {
     auto stackPolicy = static_cast<QWidget *>(widget)->sizePolicy();
     return static_cast<void *>(new QSizePolicy{stackPolicy.horizontalPolicy(),
@@ -154,6 +175,24 @@
 }
 
 W_OBJECT_IMPL(QliftWidget)
+
+[[maybe_unused]] void QliftWidget::mousePressEventSuper(QMouseEvent *mouseEvent) {
+    QWidget::mousePressEvent(mouseEvent);
+}
+
+[[maybe_unused]] void QliftWidget::mousePressEventOverride(
+    void *context, void (*mousePressEvent_Functor)(void *, void *)) {
+    m_mousePressEvent_Context = context;
+    m_mousePressEvent_Functor = mousePressEvent_Functor;
+}
+
+[[maybe_unused]] void QliftWidget::mousePressEvent(QMouseEvent *mouseEvent) {
+    if (m_mousePressEvent_Functor != nullptr) {
+        (*m_mousePressEvent_Functor)(m_mousePressEvent_Context, mouseEvent);
+        return;
+    }
+    QWidget::mousePressEvent(mouseEvent);
+}
 
 [[maybe_unused]] QSize QliftWidget::sizeHintSuper() const {
     return QWidget::sizeHint();
