@@ -1,5 +1,10 @@
 #include <QMainWindow>
+
+#ifndef SWIFT_PACKAGE
 #include <wobjectimpl.h>
+#else
+#include "../../include/wobjectimpl.h"
+#endif
 
 #include "qlift-QMainWindow.h"
 

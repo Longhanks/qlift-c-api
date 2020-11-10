@@ -33,7 +33,11 @@ QMainWindow_closeEvent_Override(void *mainWindow,
 
 #include <QMainWindow>
 
+#ifndef SWIFT_PACKAGE
 #include <wobjectdefs.h>
+#else
+#include "../../include/wobjectdefs.h"
+#endif
 
 class QliftMainWindow : public QMainWindow {
     W_OBJECT(QliftMainWindow)

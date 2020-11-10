@@ -26,7 +26,11 @@ LIBRARY_API void QPushButton_mousePressEvent_Override(
 
 #include <QPushButton>
 
+#ifndef SWIFT_PACKAGE
 #include <wobjectdefs.h>
+#else
+#include "../../include/wobjectdefs.h"
+#endif
 
 class QliftPushButton : public QPushButton {
     W_OBJECT(QliftPushButton)
