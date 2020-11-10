@@ -50,6 +50,12 @@ LIBRARY_API void *QWidget_maximumSize(void *widget);
 
 LIBRARY_API void QWidget_setMaximumSize(void *widget, void *size);
 
+LIBRARY_API void *QWidget_sizeHint(void *widget);
+
+LIBRARY_API void QWidget_sizeHint_Override(void *widget,
+                                           void *context,
+                                           void *(*sizeHint_Functor)(void *));
+
 LIBRARY_API void *QWidget_sizePolicy(void *widget);
 
 LIBRARY_API void QWidget_setSizePolicy(void *widget, void *policy);
@@ -60,4 +66,36 @@ LIBRARY_API void QWidget_setStyleSheet(void *widget, const char *styleSheet);
 
 #ifdef __cplusplus
 }
+#endif
+
+#ifdef __cplusplus
+
+#include <QWidget>
+
+#ifndef SWIFT_PACKAGE
+#include <wobjectdefs.h>
+#else
+#include "../../include/wobjectdefs.h"
+#endif
+
+class QliftWidget : public QWidget {
+    W_OBJECT(QliftWidget)
+
+public:
+    using QWidget::QWidget;
+    ~QliftWidget() override = default;
+    QliftWidget(const QliftWidget &) = delete;
+    QliftWidget &operator=(QliftWidget &) = delete;
+    QliftWidget(QliftWidget &&) noexcept = delete;
+    QliftWidget &operator=(QliftWidget &&) noexcept = delete;
+
+    [[nodiscard]] QSize sizeHintSuper() const;
+    void sizeHintOverride(void *context, void *(*sizeHint_Functor)(void *));
+    [[nodiscard]] QSize sizeHint() const override;
+
+private:
+    void *(*m_sizeHint_Functor)(void *) = nullptr;
+    void *m_sizeHint_Context = nullptr;
+};
+
 #endif

@@ -1,15 +1,21 @@
 #include <QWidget>
 
+#ifndef SWIFT_PACKAGE
+#include <wobjectimpl.h>
+#else
+#include "../../include/wobjectimpl.h"
+#endif
+
 #include "qlift-QWidget.h"
 
 [[maybe_unused]] void *QWidget_new(void *parent, int flags) {
     return static_cast<void *>(
-        new QWidget{static_cast<QWidget *>(parent),
-                    static_cast<QFlags<Qt::WindowType>>(flags)});
+        new QliftWidget{static_cast<QWidget *>(parent),
+                        static_cast<QFlags<Qt::WindowType>>(flags)});
 }
 
 [[maybe_unused]] void QWidget_delete(void *widget) {
-    delete static_cast<QWidget *>(widget);
+    delete static_cast<QliftWidget *>(widget);
 }
 
 [[maybe_unused]] bool QWidget_close(void *widget) {
@@ -133,4 +139,38 @@
 [[maybe_unused]] void QWidget_setStyleSheet(void *widget,
                                             const char *styleSheet) {
     static_cast<QWidget *>(widget)->setStyleSheet(styleSheet);
+}
+
+[[maybe_unused]] void *QWidget_sizeHint(void *widget) {
+    auto stackSize = static_cast<QliftWidget *>(widget)->sizeHintSuper();
+    return static_cast<void *>(
+        new QSize{stackSize.width(), stackSize.height()});
+}
+
+[[maybe_unused]] void QWidget_sizeHint_Override(
+    void *widget, void *context, void *(*sizeHint_Functor)(void *)) {
+    static_cast<QliftWidget *>(widget)->sizeHintOverride(context,
+                                                         sizeHint_Functor);
+}
+
+W_OBJECT_IMPL(QliftWidget)
+
+[[maybe_unused]] QSize QliftWidget::sizeHintSuper() const {
+    return QWidget::sizeHint();
+}
+
+[[maybe_unused]] void
+QliftWidget::sizeHintOverride(void *context,
+                              void *(*sizeHint_Functor)(void *)) {
+    m_sizeHint_Context = context;
+    m_sizeHint_Functor = sizeHint_Functor;
+}
+
+[[maybe_unused]] QSize QliftWidget::sizeHint() const {
+    if (m_sizeHint_Functor != nullptr) {
+        auto *size =
+            static_cast<QSize *>((*m_sizeHint_Functor)(m_sizeHint_Context));
+        return QSize{size->width(), size->height()};
+    }
+    return QWidget::sizeHint();
 }
