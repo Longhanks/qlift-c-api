@@ -264,8 +264,5 @@ install(DIRECTORY src/qlift-c-api/
     DESTINATION "${CMAKE_INSTALL_PREFIX}/include/qlift-c-api"
     FILES_MATCHING PATTERN "*.h*")
 
-install(FILES src/qlift-c-api/module.modulemap
-    DESTINATION "${CMAKE_INSTALL_PREFIX}/include/qlift-c-api")
-
 install(FILES ${CMAKE_BINARY_DIR}/qlift-c-api.pc
     DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
