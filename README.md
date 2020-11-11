@@ -5,7 +5,22 @@ C API to Qt for [Qlift](https://github.com/Longhanks/Qlift "Qlift")
 
 #### Swift
 
+##### Linux
+
 `swift build`
+
+##### Mac
+
+```sh
+swift build \
+    -Xcc -I$(brew --prefix qt)/lib/QtCore.framework/Headers \
+    -Xcc -I$(brew --prefix qt)/lib/QtGui.framework/Headers \
+    -Xcc -I$(brew --prefix qt)/lib/QtWidgets.framework/Headers \
+    -Xcc -I$(brew --prefix qt)/include \
+    -Xlinker $(brew --prefix qt)/lib/QtCore.framework/QtCore \
+    -Xlinker $(brew --prefix qt)/lib/QtGui.framework/QtGui \
+    -Xlinker $(brew --prefix qt)/lib/QtWidgets.framework/QtWidgets
+```
 
 #### C++
 

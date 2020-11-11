@@ -16,7 +16,10 @@ let package = Package(
         .target(
             name: "CQlift",
             dependencies: [
-                "CQt5Widgets"
+                .target(
+                    name: "CQt5Widgets",
+                    condition: .when(platforms: [.linux])
+                )
             ],
             path: "src/qlift-c-api",
             publicHeadersPath: "."
