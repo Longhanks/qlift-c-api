@@ -100,6 +100,12 @@
         stackRect.x(), stackRect.y(), stackRect.width(), stackRect.height()});
 }
 
+[[maybe_unused]] void *QWidget_size(void *widget) {
+    auto stackSize = static_cast<QWidget *>(widget)->size();
+    return static_cast<void *>(
+        new QSize{stackSize.width(), stackSize.height()});
+}
+
 [[maybe_unused]] void QWidget_resize(void *widget, int w, int h) {
     static_cast<QWidget *>(widget)->resize(w, h);
 }
