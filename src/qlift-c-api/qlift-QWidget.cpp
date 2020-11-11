@@ -104,6 +104,10 @@
     static_cast<QWidget *>(widget)->resize(w, h);
 }
 
+[[maybe_unused]] void QWidget_setFixedSize(void *widget, void *size) {
+    static_cast<QWidget *>(widget)->setFixedSize(*static_cast<QSize *>(size));
+}
+
 [[maybe_unused]] void *QWidget_frameGeometry(void *widget) {
     auto stackRect = static_cast<QWidget *>(widget)->frameGeometry();
     return static_cast<void *>(new QRect{
@@ -129,16 +133,16 @@
 }
 
 [[maybe_unused]] void QWidget_mousePressEvent(void *widget, void *mouseEvent) {
-    static_cast<QliftWidget *>(widget)
-        ->mousePressEventSuper(static_cast<QMouseEvent *>(mouseEvent));
+    static_cast<QliftWidget *>(widget)->mousePressEventSuper(
+        static_cast<QMouseEvent *>(mouseEvent));
 }
 
 [[maybe_unused]] void QWidget_mousePressEvent_Override(
     void *widget,
     void *context,
     void (*mousePressEvent_Functor)(void *, void *)) {
-    static_cast<QliftWidget *>(widget)
-        ->mousePressEventOverride(context, mousePressEvent_Functor);
+    static_cast<QliftWidget *>(widget)->mousePressEventOverride(
+        context, mousePressEvent_Functor);
 }
 
 [[maybe_unused]] void *QWidget_sizePolicy(void *widget) {
@@ -176,7 +180,8 @@
 
 W_OBJECT_IMPL(QliftWidget)
 
-[[maybe_unused]] void QliftWidget::mousePressEventSuper(QMouseEvent *mouseEvent) {
+[[maybe_unused]] void
+QliftWidget::mousePressEventSuper(QMouseEvent *mouseEvent) {
     QWidget::mousePressEvent(mouseEvent);
 }
 

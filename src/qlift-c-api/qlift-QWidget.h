@@ -46,6 +46,8 @@ LIBRARY_API void *QWidget_rect(void *widget);
 
 LIBRARY_API void QWidget_resize(void *widget, int w, int h);
 
+LIBRARY_API void QWidget_setFixedSize(void *widget, void *size);
+
 LIBRARY_API void *QWidget_frameGeometry(void *widget);
 
 LIBRARY_API bool QWidget_isWindow(void *widget);
